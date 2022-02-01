@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Cart extends Migration
+class Store extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,18 @@ class Cart extends Migration
      */
     public function up()
     {
-        Schema::create('carts', function (Blueprint $table) {
-            $table->unsignedBigInteger('product_id');
+        //
+        Schema::create('store', function (Blueprint $table) {
+            $table->id('store_id');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('product_id')->references('product_id')->on('products');
             $table->foreign('user_id')->references('user_id')->on('users');
-            $table->integer('quantity');
+            $table->string('name');
+            $table->string('phone_number');
+            $table->string('email');
+            $table->string('address');
+            $table->string('image');
+            $table->timestamps();
+            
         });
     }
 
@@ -30,6 +36,6 @@ class Cart extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('carts');
+        Schema::dropIfExists('store');
     }
 }

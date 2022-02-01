@@ -16,7 +16,7 @@ class Category extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id('category_id');
             $table->string('name');
-            $table->date('image');
+            $table->string('image');
         });
     }
 
@@ -28,5 +28,6 @@ class Category extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('categories');
     }
 }

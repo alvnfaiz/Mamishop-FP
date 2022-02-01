@@ -14,6 +14,13 @@ class Banners extends Migration
     public function up()
     {
         //
+        Schema::create('banners', function (Blueprint $table) {
+            $table->id('banner_id');
+            $table->string('image');
+            $table->string('link');
+            $table->string('status');
+            $table->string('alt')->nullable();
+        });
     }
 
     /**

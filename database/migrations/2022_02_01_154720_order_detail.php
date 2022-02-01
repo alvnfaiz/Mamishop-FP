@@ -14,6 +14,14 @@ class OrderDetail extends Migration
     public function up()
     {
         //
+        Schema::create('order_detail', function (Blueprint $table) {
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('order_id')->references('order_id')->on('orders');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('product_id')->on('products');
+            $table->integer('quantity');
+            $table->double('price');
+        });
     }
 
     /**

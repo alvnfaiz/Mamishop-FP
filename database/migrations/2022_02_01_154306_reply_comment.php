@@ -13,7 +13,14 @@ class ReplyComment extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('reply_comment', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->unsignedBigInteger('comment_id');
+            $table->foreign('comment_id')->references('comment_id')->on('comments');
+            $table->string('reply');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -24,5 +31,6 @@ class ReplyComment extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('reply_comment');
     }
 }

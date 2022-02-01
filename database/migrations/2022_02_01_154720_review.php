@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Message extends Migration
+class Review extends Migration
 {
     /**
      * Run the migrations.
@@ -14,16 +14,18 @@ class Message extends Migration
     public function up()
     {
         //
-        Schema::create('messages', function (Blueprint $table) {
-            $table->id('message_id');
+        Schema::create('review', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users');
-            $table->unsignedBigInteger('store_id');
-            $table->foreign('store_id')->references('store_id')->on('store');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('product_id')->on('products');
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('order_id')->references('order_id')->on('orders');
+            $table->boolean('is_anonim');
+            $table->string('review');
+            $table->integer('rating');
             $table->string('image');
-            $table->string('message');
             $table->timestamps();
-            
         });
     }
 
@@ -35,6 +37,5 @@ class Message extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('messages');
     }
 }

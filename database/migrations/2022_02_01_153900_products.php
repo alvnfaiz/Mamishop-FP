@@ -15,8 +15,8 @@ class Products extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id('product_id');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->unsignedBigInteger('store_id');
+            $table->foreign('store_id')->references('store_id')->on('store');
             $table->string('name');
             $table->string('deskripsi');
             $table->string('image');
@@ -36,5 +36,6 @@ class Products extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('products');
     }
 }
