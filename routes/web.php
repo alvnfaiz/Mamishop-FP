@@ -51,6 +51,9 @@ Route::prefix('/cart')->name('cart.')->group(function(){
     Route::get('/edit/{id}', [CartController::class, 'edit'])->name('edit');
     Route::put('/edit/{id}', [CartController::class, 'update'])->name('update');
     Route::delete('/delete/{id}', [CartController::class, 'destroy'])->name('destroy');
+
+
+    Route::post('/add/{id}', [CartController::class, 'add'])->name('add');
 });
 
 //Order Crud admin & user middleware
@@ -93,6 +96,14 @@ Route::get('/admin', [AdminController::class, 'index'])->name('dashboard')->midd
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');
 // })->middleware('admin')->name('dashboard');
+
+//Product
+Route::get('/barang/{id}', [ProductsController::class, 'show'])->name('product.show');
+
+
+
+
+
 
 require __DIR__.'/auth.php';
 

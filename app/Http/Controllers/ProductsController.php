@@ -21,31 +21,59 @@ class ProductsController extends Controller
     }
 
     public function store(Request $request){
-        $request->validate([
+
+        //ddd($request);
+        $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:products,slug',
             'deskripsi' => 'required|string|max:255',
-            'price' => 'required|integer',
+            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
             'stock' => 'required|integer',
             'categories_id' => 'required|integer',
             'status' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+        $validatedData['image'] = $request->file('image')->store('products');
+        Products::create($validatedData);
+        return redirect()->route('product.index');
+    }
 
-        $image = $request->file('image');
-        $new_name = rand() . '.' . $image->getClientOriginalExtension();
-        Products::create([
-            'name' => $request->name,
-            'slug' => $request->slug,
-            'deskripsi' => $request->deskripsi,
-            'price' => $request->price,
-            'stock' => $request->stock,
-            'categories_id' => $request->categories_id,
-            'status' => $request->status,
-            'image' => $new_name,
-        ]);
-        return redirect()->route('products.index');
+    public function edit(Request $request){
+        $post = Products::where('id', $request->id)->first();
+        $category = Categories::all();
+        return view('products.edit', compact('post', 'category'));
+    }
+
+    public function update(Request $request){
+        
+        //ddd($request);
+        $data = [
+            'name' => 'required|string|max:255',
+            'deskripsi' => 'required|string|max:255',
+            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
+            'stock' => 'required|integer',
+            'categories_id' => 'required|integer',
+            'status' => 'required',
+        ];
+        
+        if($request->file('image')){
+            $data['image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
+        }
+        $validatedData = $request->validate($data);
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('products');
+        }
+        
+        Products::where('id', $request->id)
+            ->update($validatedData);
+        return redirect()->route('product.index');
+    }
+
+    public function destroy(Request $request)
+    {
+        //
+        $product = Products::find($request->id);
+        $product->delete();
+        return redirect()->route('product.index');
     }
 
 }

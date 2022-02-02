@@ -30,7 +30,7 @@ class CategoryController extends Controller
             'slug' => 'required|string|max:255|unique:categories,slug',
         ]);
 
-        Category::create([
+        Categories::create([
             'name' => $request->name,
             'slug' => $request->slug,
         ]);
@@ -65,7 +65,7 @@ class CategoryController extends Controller
     public function destroy(Request $request)
     {
         //
-        $category = Category::find($request->id);
+        $category = Categories::find($request->id);
         $category->delete();
 
         return redirect()->route('category.index');

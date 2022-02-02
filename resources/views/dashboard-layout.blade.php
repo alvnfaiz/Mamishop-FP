@@ -40,6 +40,9 @@
                 </div>
             </div>
             <div class="flex flex-row items-center">
+                <span class="p-4 font-semibold text-blue-500">
+                    {{ auth()->user()->name }}
+                </span>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="p-4 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white">Logout</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf

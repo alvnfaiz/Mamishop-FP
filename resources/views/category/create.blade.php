@@ -7,6 +7,7 @@
             <div>
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <form action="#" method="POST">
+                        @csrf
                         <div class="sm:rounded-md sm:overflow-hidden">
                             <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
                                 <div class="grid grid-cols-3 gap-6">
@@ -16,6 +17,16 @@
                                         </label>
                                         <div class="flex mt-1 shadow-sm">
                                             <input type="text" name="name" id="name" class="flex-1 block w-full border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Nama Kategori">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-6">
+                                    <div class="col-span-3 sm:col-span-2">
+                                        <label for="slug" class="block text-sm font-medium text-gray-700">
+                                            Slug
+                                        </label>
+                                        <div class="flex mt-1 shadow-sm">
+                                            <input type="text" name="slug" id="slug" class="flex-1 block w-full border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Nama Kategori">
                                         </div>
                                     </div>
                                 </div>

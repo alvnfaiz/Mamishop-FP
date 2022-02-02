@@ -3,7 +3,6 @@
 @section('konten')
     <div class="container px-10 py-6 mx-auto mt-20 bg-white shadow-xl">
         <h2 class="text-2xl font-medium text-center text-blue-600">Tambah Produk</h2>
-
         <div class="mt-10">
             <div>
                 <div class="mt-5 md:mt-0 md:col-span-2">
@@ -50,7 +49,11 @@
                                         <label for="categories_id" class="block text-sm font-medium text-gray-700">Kategori</label>
                                         <select id="categories_id" name="categories_id" autocomplete="categories_id" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                             @foreach ($category as $cat)
-                                                <option value="{{ $cat->id }}">{{ $cat->name }}</option> 
+                                                @if(old('categories_id') == $cat->id)
+                                                    <option value="{{ $cat->id }}" selected>{{ $cat->name }}</option>
+                                                @else
+                                                    <option value="{{ $cat->id }}">{{ $cat->name }}</option> 
+                                                @endif
                                             @endforeach
                                             
                                         </select>
@@ -61,9 +64,9 @@
                                     </div>
                                     <div class="col-span-3 sm:col-span-2">
                                         <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
-                                        <input type="radio" value="Available" name="status">
+                                        <input type="radio" value="Available" name="status" @if(old('status') == 'Available') checked @endif>
                                         <label for="status" class="ml-2">Available</label>
-                                        <input type="radio" value="Unvailable" name="status">
+                                        <input type="radio" value="Unvailable" name="status" @if(old('status') == 'Unavailable') checked @endif>
                                         <label for="status" class="ml-2">Unvailable</label>
                                         @error('status')
                                             <p class="mt-2 text-xs italic text-red-500">{{ $message }}</p>
@@ -81,7 +84,6 @@
                                         </p>
                                         @error('deskripsi')
                                             <p class="mt-2 text-xs italic text-red-500">{{ $message }}</p>
-
                                         @enderror
                                         
                                     </div>

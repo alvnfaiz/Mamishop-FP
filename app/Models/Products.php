@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Cart;
+use App\Models\Categories;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Products extends Model
 {
@@ -23,14 +25,14 @@ class Products extends Model
         'image',
     ];
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(App\Models\Categories::class);
+        return $this->belongsTo(Categories::class);
     }
 
     public function cart()
     {
-        return $this->hasMany(App\Models\Cart::class);
+        return $this->hasMany(Cart::class);
     }
 
 }
