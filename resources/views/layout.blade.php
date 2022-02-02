@@ -15,15 +15,8 @@
                     <a href="{{ route('home') }}">
                         <img src="https://i.ibb.co/nzGDjkh/Logo.png" alt="logo" class="h-10">
                     </a>
-                    <div class="ml-4">
-                        <a href="{{ route('home') }}" class="text-lg font-semibold text-gray-800">
-                            <span class="text-lg font-semibold text-gray-800">
-                                <span class="text-lg font-bold text-blue-600">Mami</span><span class="italic text-blue-500">Shop</span>
-                            </span>
-                        </a>
-                    </div>
                 </div>
-                <div class="flex flex-row items-center ml-auto">
+                <div class="flex flex-row items-center">
                     <div class="flex flex-row items-center">
                         <a href="{{ route('home') }}" class="p-4 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white">
                             Home
@@ -31,11 +24,27 @@
                         <a href="{{ route('home') }}" class="p-4 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white">
                             Produk
                         </a>
-                        <a href="{{ route('home') }}" class="p-4 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white">
-                            Toko
+                        <a href="{{ route('category.index') }}" class="p-4 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white">
+                            Kategory
                         </a>
                     </div>
                 </div>
+            </div>
+            <div class="flex flex-row items-center">
+                @if(auth()->user())
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="p-4 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white">Logout</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                @else
+                <a href="{{ route('login') }}" class="p-2 font-semibold text-blue-500 rounded hover:bg-blue-500 hover:text-white">
+                    Login
+                </a>
+                <a href="{{ route('register') }}" class="p-2 ml-4 font-semibold text-white rounded hover:bg-blue-500 bg-sky-500">
+                    Register
+                </a>
+                @endif
+                
             </div>
         </div>
     </div>

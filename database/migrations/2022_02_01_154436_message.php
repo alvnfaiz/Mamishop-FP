@@ -18,8 +18,7 @@ class Message extends Migration
             $table->id('message_id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('store_id');
-            $table->foreign('store_id')->references('store_id')->on('store');
+            $table->enum('type', ['send', 'receive']);
             $table->string('image');
             $table->string('message');
             $table->timestamps();

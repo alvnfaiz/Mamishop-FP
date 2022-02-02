@@ -15,8 +15,6 @@ class Products extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id('product_id');
-            $table->unsignedBigInteger('store_id');
-            $table->foreign('store_id')->references('store_id')->on('store');
             $table->string('name');
             $table->string('deskripsi');
             $table->string('image');

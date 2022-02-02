@@ -24,16 +24,6 @@ use App\Http\Controllers\SettingsController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-//Store Crud admin & auth middleware
-Route::middleware(['auth', 'admin'])->prefix('/store')->name('admin.')->group(function(){
-    Route::get('/', [StoreController::class, 'index'])->name('index');
-    Route::get('/create', [StoreController::class, 'create'])->name('create');
-    Route::post('/create', [StoreController::class, 'store'])->name('store');
-    Route::get('/{id}/edit', [StoreController::class, 'edit'])->name('edit');
-    Route::put('/{id}/edit', [StoreController::class, 'update'])->name('update');
-    Route::delete('/{id}/delete', [StoreController::class, 'destroy'])->name('destroy');
-});
-
 Route::middleware('admin')->prefix('/category')->name('category.')->group(function(){
     Route::get('/', [CategoryController::class, 'index'])->name('index');
     Route::get('/create', [CategoryController::class, 'create'])->name('create');
@@ -43,7 +33,7 @@ Route::middleware('admin')->prefix('/category')->name('category.')->group(functi
     Route::delete('/{id}/delete', [CategoryController::class, 'destroy'])->name('destroy');
 });
 
-Route::middleware(['auth','admin'])->prefix('/product')->name('category.')->group(function(){
+Route::middleware(['admin'])->prefix('/product')->name('category.')->group(function(){
     Route::get('/', [ProductsController::class, 'index'])->name('index');
     Route::get('/create', [ProductsController::class, 'create'])->name('create');
     Route::post('/create', [ProductsController::class, 'store'])->name('store');
@@ -62,8 +52,8 @@ Route::prefix('/cart')->name('cart.')->group(function(){
     Route::delete('/{id}/delete', [CartController::class, 'destroy'])->name('destroy');
 });
 
-//Order Crud admin & auth middleware
-Route::middleware(['auth', 'admin'])->prefix('/order')->name('order.')->group(function(){
+//Order Crud admin & user middleware
+Route::middleware('auth')->prefix('/order')->name('order.')->group(function(){
     Route::get('/', [OrderController::class, 'index'])->name('index');
     Route::get('/create', [OrderController::class, 'create'])->name('create');
     Route::post('/create', [OrderController::class, 'store'])->name('store');
@@ -87,7 +77,7 @@ Route::middleware(['admin'])->prefix('/product')->name('banners.')->group(functi
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['user', 'admin'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
