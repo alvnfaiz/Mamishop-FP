@@ -17,7 +17,7 @@ class Message extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id('message_id');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('store_id');
             $table->foreign('store_id')->references('store_id')->on('store');
             $table->string('image');

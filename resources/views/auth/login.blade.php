@@ -15,8 +15,14 @@
                         </ul>
                     </div>
                 @endif
-                <input type="email" name="email" placeholder="Email@email.com" class="border border-gray-400 rounded p-2">
-                <input type="password" name="password" placeholder="Password" class="border border-gray-400 rounded p-2 mt-5">
+                <input type="email" name="email" placeholder="Email@email.com" class="border border-gray-400 rounded p-2" required value="{{ old('email') }}">
+                @error('email')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
+                <input type="password" name="password" placeholder="Password" class="border border-gray-400 rounded p-2 mt-5" required>
+                @error('password')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
                 <button type="submit" class="bg-blue-500 text-white rounded p-2 mt-5">Login</button>
             </form>
             <div class="text-center mt-5">

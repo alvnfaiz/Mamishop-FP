@@ -16,7 +16,7 @@ class Comment extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id('comment_id');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('product_id')->on('products');
             $table->string('comments');
