@@ -33,10 +33,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-
+    public function store()
+    {
+        return $this->hasOne(Store::class);
+    }
 }

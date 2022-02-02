@@ -11,7 +11,10 @@ class StoreController extends Controller
     //CRUD
     public function index()
     {
-        $store = \App\Models\Store::all();
+        $store = \App\Models\User::find(1)->store;
+        if(!$store) {
+            return view('store.create', ['store' => null]);
+        }
         return view('store.index', ['store' => $store]);
     }
 
