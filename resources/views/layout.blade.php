@@ -18,14 +18,14 @@
                 </div>
                 <div class="flex flex-row items-center">
                     <div class="flex flex-row items-center">
-                        <a href="{{ route('home') }}" class="p-4 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white">
+                        <a href="{{ route('home') }}" class="p-4 font-semibold text-sky-500 hover:bg-sky-500 hover:text-white">
                             Home
                         </a>
-                        <a href="{{ route('home') }}" class="p-4 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white">
-                            Produk
+                        <a href="{{ route('home') }}" class="p-4 font-semibold text-sky-500 hover:bg-sky-500 hover:text-white">
+                            About
                         </a>
-                        <a href="{{ route('category.index') }}" class="p-4 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white">
-                            Kategory
+                        <a href="{{ route('category.index') }}" class="p-4 font-semibold text-sky-500 hover:bg-sky-500 hover:text-white">
+                            Contact Us
                         </a>
                     </div>
                 </div>

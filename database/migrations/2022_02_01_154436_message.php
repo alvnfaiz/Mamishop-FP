@@ -21,6 +21,7 @@ class Message extends Migration
             $table->enum('type', ['send', 'receive']);
             $table->string('image');
             $table->string('message');
+            $table->boolean('read')->default(false);
             $table->timestamps();
             
         });
