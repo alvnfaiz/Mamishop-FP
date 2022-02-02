@@ -41,7 +41,7 @@ class CategoryController extends Controller
     public function edit(Request $request)
     {
         //
-        $category = Categories::where('category_id', $request->id)->first();
+        $category = Categories::where('id', $request->id)->first();
         return view('category.edit', compact('category'));
 
     }
@@ -54,11 +54,11 @@ class CategoryController extends Controller
             'slug' => 'required|string|max:255|unique:categories,slug,'.$request->id,
         ]);
 
-        $category = Category::where('category_id', $request->id);
-        $category->name = $request->name;
-        $category->slug = $request->slug;
-        $category->save();
-
+        $category = Categories::where('id', $request->id);
+        $category->update([
+            'name' => $request->name,
+            'slug' => $request->slug,
+        ]);
         return redirect()->route('category.index');
     }
 

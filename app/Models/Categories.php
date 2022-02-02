@@ -12,7 +12,7 @@ class Categories extends Model
     protected $table = 'categories';
 
     protected $fillable = [
-        'category_id',
+        'id',
         'name',
         'slug',
     ];
@@ -20,7 +20,7 @@ class Categories extends Model
     //disable timestamps
     public $timestamps = false;
 
-    protected $guarded = ['category_id'];
+    protected $guarded = ['id'];
 
     public function products()
     {

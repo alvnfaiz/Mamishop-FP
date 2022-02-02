@@ -14,13 +14,14 @@ class Products extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id('product_id');
+            $table->id('id');
             $table->string('name');
             $table->string('deskripsi');
             $table->string('image');
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('category_id')->on('categories');
+            $table->unsignedBigInteger('categories_id');
+            $table->foreign('categories_id')->references('id')->on('categories');
             $table->double('price');
+            $table->enum('status', ['Available', 'Unavailable']);
             $table->integer('stock');
             $table->timestamps();
         });

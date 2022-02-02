@@ -16,27 +16,27 @@ class CategorySeeder extends Seeder
     {
         //
         Categories::create([
-            'category_id'   => '1',
+            'id'   => '1',
             'name' => 'Lainnya',
             'slug' => 'lainnya',
         ]);
         Categories::create([
-            'category_id'   => '2',
+            'id'   => '2',
             'name' => 'Makanan Ringan',
             'slug' => 'makanan-ringan',
         ]);
         Categories::create([
-            'category_id'   => '3',
+            'id'   => '3',
             'name' => 'Makanan Berat',
             'slug' => 'makanan-berat',
         ]);
         Categories::create([
-            'category_id'   => '4',
+            'id'   => '4',
             'name' => 'Minuman',
             'slug' => 'minuman',
         ]);
         Categories::create([
-            'category_id'   => '5',
+            'id'   => '5',
             'name' => 'Pakaian',
             'slug' => 'pakaian',
         ]);

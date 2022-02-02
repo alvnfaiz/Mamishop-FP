@@ -83,8 +83,8 @@ Route::middleware(['auth'])->prefix('/admin/message')->name('message.')->group(f
 
 Route::middleware(['auth'])->prefix('/review')->name('review.')->group(function(){
     Route::get('/', [ReviewController::class, 'index'])->name('index');
-    Route::get('/{product_id}/create', [ReviewController::class, 'create'])->name('create');
-    Route::post('/{product_id}/create', [ReviewController::class, 'store'])->name('store');
+    Route::get('/{id}/create', [ReviewController::class, 'create'])->name('create');
+    Route::post('/{id}/create', [ReviewController::class, 'store'])->name('store');
 });
 
 

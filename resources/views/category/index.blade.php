@@ -1,7 +1,7 @@
-@extends('layout')
+@extends('dashboard-layout')
 
 @section('konten')
-    <div class="container mx-auto">
+    <div class="container mx-auto mt-20">
         <a href="{{  route('product.create') }}"><button class="px-4 py-2 text-white bg-blue-600 rounded hover:bg-sky-600">Tambah Produk</button></a>
             <div class="flex flex-col mt-6">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -53,7 +53,7 @@
                                     </td>
                                     
                                     <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                    <a href="{{ route('category.edit', $category->category_id) }}" class="text-indigo-600 hover:text-blue-400">Edit</a>
+                                    <a href="{{ route('category.edit', $category->id) }}" class="text-indigo-600 hover:text-blue-400">Edit</a>
                                     <a href="#" class="ml-8 text-red-600 hover:text-red-400">Edit</a>
                                     </td>
                                 </tr>

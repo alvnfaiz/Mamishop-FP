@@ -18,7 +18,7 @@ class OrderDetail extends Migration
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('order_id')->on('orders');
             $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('product_id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->integer('quantity');
             $table->double('price');
         });

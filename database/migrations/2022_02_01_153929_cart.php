@@ -16,7 +16,7 @@ class Cart extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('product_id')->references('product_id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('quantity');
         });
