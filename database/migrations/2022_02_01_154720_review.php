@@ -24,7 +24,6 @@ class Review extends Migration
             $table->boolean('is_anonim');
             $table->string('review');
             $table->integer('rating');
-            $table->string('image');
             $table->timestamps();
         });
     }

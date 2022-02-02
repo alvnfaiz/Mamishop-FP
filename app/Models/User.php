@@ -33,8 +33,22 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function store()
-    {
-        return $this->hasOne(Store::class);
+    public function review(){
+        return $this->hasMany(Review::class);
     }
+
+    public function cart(){
+        return $this->hasMany(Cart::class);
+    }
+
+    public function order(){
+        return $this->hasMany(Order::class);
+    }
+
+    public function messages(){
+        return $this->hasMany(Messages::class);
+    }
+    
+
+
 }
