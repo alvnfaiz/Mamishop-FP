@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->enum('role', ['Admin', 'Pegawai', 'Member'])->default('Member');
             $table->string('phone_number');
             $table->enum('gender', ['Pria', 'Wanita']);
-            $table->date('birth_date');
+            $table->date('birth_date')->default('2000-01-01');
             $table->mediumText('address')->nullable();
             $table->timestamps();
             $table->string('remember_token')->nullable();

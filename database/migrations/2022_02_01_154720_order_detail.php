@@ -16,10 +16,10 @@ class OrderDetail extends Migration
         //
         Schema::create('order_detail', function (Blueprint $table) {
             $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('order_id')->on('orders');
+            $table->foreign('order_id')->references('id')->on('orders');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
-            $table->integer('quantity');
+            $table->integer('total');
             $table->double('price');
         });
     }

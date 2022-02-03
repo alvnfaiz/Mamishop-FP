@@ -15,15 +15,15 @@ class Message extends Migration
     {
         //
         Schema::create('messages', function (Blueprint $table) {
-            $table->id('message_id');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->enum('type', ['send', 'receive']);
-            $table->string('image');
+            $table->id();
+            $table->unsignedBigInteger('sender_id');
+            $table->foreign('sender_id')->references('id')->on('users');
+            $table->unsignedBigInteger('recipient_id');
+            $table->foreign('recipient_id')->references('id')->on('users');
+            $table->string('image')->nullable();
             $table->string('message');
             $table->boolean('read')->default(false);
-            $table->timestamps();
-            
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Review extends Migration
+class CreateReportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,13 @@ class Review extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('review', function (Blueprint $table) {
+        Schema::create('reports', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('order_id')->on('orders');
-            $table->boolean('is_anonim');
-            $table->string('review');
-            $table->integer('rating');
+            $table->string('subject');
+            $table->string('image')->nullable();
+            $table->mediumText('value');
             $table->timestamps();
         });
     }
@@ -35,6 +31,6 @@ class Review extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('reports');
     }
 }

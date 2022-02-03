@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Banners extends Migration
+class CreateBroadcastsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class Banners extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('banners', function (Blueprint $table) {
+        Schema::create('broadcasts', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->string('link');
-            $table->enum('status', ['active', 'inactive'])->default('inactive');
-            $table->string('alt')->nullable();
+            $table->mediumText('value');
+            $table->string('image')->nullable();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('send_at');
         });
     }
 
@@ -30,6 +29,6 @@ class Banners extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('broadcasts');
     }
 }
