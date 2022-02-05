@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class Admin
+class Pegawai
 {
     /**
      * Handle an incoming request.
@@ -17,10 +17,10 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role == 'Admin'){
+        if (Auth::user()->role == 'Pegawai'){
             return $next($request);
         } else {
-            return redirect('/');
+            return redirect('/login');
         }
     }
 }

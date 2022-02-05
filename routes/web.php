@@ -34,7 +34,7 @@ Route::middleware('admin')->prefix('/admin/category')->name('category.')->group(
     Route::delete('/delete/{id}', [CategoryController::class, 'destroy'])->name('destroy');
 });
 
-Route::middleware(['admin'])->prefix('/admin/product')->name('product.')->group(function(){
+Route::middleware(['admin', 'pegawai'])->prefix('/admin/product')->name('product.')->group(function(){
     Route::get('/', [ProductsController::class, 'index'])->name('index');
     Route::get('/create', [ProductsController::class, 'create'])->name('create');
     Route::post('/create', [ProductsController::class, 'store'])->name('store');

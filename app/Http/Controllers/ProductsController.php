@@ -32,7 +32,8 @@ class ProductsController extends Controller
             'status' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $validatedData['image'] = $request->file('image')->store('products');
+        $imageName = time().'.'.$request->image->extension();  
+        $validatedData['image'] = $request->image->move(public_path('images/products'), $imageName);
         Products::create($validatedData);
         return redirect()->route('product.index');
     }
@@ -60,7 +61,8 @@ class ProductsController extends Controller
         }
         $validatedData = $request->validate($data);
         if($request->file('image')){
-            $validatedData['image'] = $request->file('image')->store('products');
+            $imageName = time().'.'.$request->image->extension();  
+            $validatedData['image'] = $request->image->move(public_path('images/products'), $imageName);
         }
         
         Products::where('id', $request->id)

@@ -16,151 +16,36 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'id'   => '1',
-            'username' => 'Admin Alvin',
-            'email' => 'alvin@gmail.com',
+            'username' => 'ningsih',
+            'email' => 'ningsih@gmail.com',
             'password' => Hash::make('password'),
             'role' => 'admin',
             'phone_number' => '08123456789',
+            'gender' => 'Wanita',
             'birth_date' => '1999-01-01',
+            'address'=>'Jln Raya Bukittinggi, No 123, Kota Bukittinggi'
         ]);
         User::create([
-            'id'   => '2',
-            'username' => 'Raven',
-            'email' => 'raven@gmail.com',
+            'username' => 'pegawai',
+            'email' => 'pegawai@gmail.com',
             'password' => Hash::make('password'),
-            'role' => 'admin',
+            'role' => 'Pegawai',
             'phone_number' => '08123456789',
+            'gender' => 'Wanita',
             'birth_date' => '1999-01-01',
+            'address'=>'Jln Raya Mayarakat, No 123, Kota Bukittinggi'
         ]);
         User::create([
-            'id'   => '3',
-            'username' => 'Tiara',
-            'email' => 'tiara@gmail.com',
-            'password' => Hash::make('password'),
-            'role' => 'admin',
-            'phone_number' => '08123456789',
-            'birth_date' => '1999-01-01',
-        ]);
-        User::create([
-            'id'   => '4',
-            'username' => 'Ihsan',
-            'email' => 'ihsan@gmail.com',
-            'password' => Hash::make('password'),
-            'role' => 'admin',
-            'phone_number' => '08123456789',
-            'birth_date' => '1999-01-01',
-        ]);
-        User::create([
-            'id'   => '5',
-            'username' => 'Ezik',
-            'email' => 'ezik@gmail.com',
-            'password' => Hash::make('password'),
-            'role' => 'admin',
-            'phone_number' => '08123456789',
-            'birth_date' => '1999-01-01',
-        ]);
-        User::create([
-            'id'   => '6',
-            'username' => 'azim',
-            'email' => 'azim@gmail.com',
-            'password' => Hash::make('password'),
-            'role' => 'admin',
-            'phone_number' => '08123456789',
-            'birth_date' => '1999-01-01',
-        ]);
-
-
-        //
-        User::create([
-            'id'   => '16',
-            'username' => 'Member 1',
+            'username' => 'member1',
             'email' => 'member1@gmail.com',
             'password' => Hash::make('password'),
-            'role' => 'user',
             'phone_number' => '08123456789',
+            'gender' => 'Wanita',
             'birth_date' => '1999-01-01',
+            'address'=>'Jln Raya Padang, No 123, Kota Bukittinggi'
         ]);
-        User::create([
-            'id'   => '7',
-            'username' => 'Member 2',
-            'email' => 'member2@gmail.com',
-            'password' => Hash::make('password'),
-            'role' => 'user',
-            'phone_number' => '08123456790',
-            'birth_date' => '1999-01-01',
-        ]);
-        User::create([
-            'id'   => '8',
-            'username' => 'Member 3',
-            'email' => 'member3@gmail.com',
-            'password' => Hash::make('password'),
-            'role' => 'user',
-            'phone_number' => '08123456791',
-            'birth_date' => '1999-01-01',
-        ]);
-        User::create([
-            'id'   => '9',
-            'username' => 'Member 4',
-            'email' => 'member4@gmail.com',
-            'password' => Hash::make('password'),
-            'role' => 'user',
-            'phone_number' => '08123456789',
-            'birth_date' => '1999-01-01',
-        ]);
-        User::create([
-            'id'   => '10',
-            'username' => 'Member 5',
-            'email' => 'member5@gmail.com',
-            'password' => Hash::make('password'),
-            'role' => 'user',
-            'phone_number' => '08123456789',
-            'birth_date' => '1999-01-01',
-        ]);
-        User::create([
-            'id'   => '11',
-            'username' => 'Member 6',
-            'email' => 'member6@gmail.com',
-            'password' => Hash::make('password'),
-            'role' => 'user',
-            'phone_number' => '08123456789',
-            'birth_date' => '1999-01-01',
-        ]);
-        User::create([
-            'id'   => '12',
-            'username' => 'Member 7',
-            'email' => 'member7@gmail.com',
-            'password' => Hash::make('password'),
-            'role' => 'user',
-            'phone_number' => '08123456789',
-            'birth_date' => '1999-01-01',
-        ]);
-        User::create([
-            'id'   => '13',
-            'username' => 'Member 8',
-            'email' => 'member8@gmail.com',
-            'password' => Hash::make('password'),
-            'role' => 'user',
-            'phone_number' => '08123456789',
-            'birth_date' => '1999-01-01',
-        ]);
-        User::create([
-            'id'   => '14',
-            'username' => 'Member 9',
-            'email' => 'member9@gmail.com',
-            'password' => Hash::make('password'),
-            'role' => 'user',
-            'phone_number' => '08123456792',
-            'birth_date' => '1999-01-01',
-        ]);
-        User::create([
-            'id'   => '15',
-            'username' => 'Member 10',
-            'email' => 'member10@gmail.com',
-            'password' => Hash::make('password'),
-            'role' => 'user',
-            'phone_number' => '08123456792',
-            'birth_date' => '1999-01-01',
-        ]);
+
+
+
     }
 }

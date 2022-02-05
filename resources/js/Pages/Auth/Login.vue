@@ -7,7 +7,7 @@
         {{ status }}
     </div>
 
-    <form @submit.prevent="submit">
+    <form @submit="submit">
         <input type="hidden" name="_token" v-bind:value="csrf">
         <div>
             <BreezeLabel for="email" value="Email" />
